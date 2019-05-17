@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TinkoffNewsTest</string>
+    <string name="error_lodaing_data">Ошибка загрузки данных!</string>
+    <string name="no_news">No news</string>
+</resources>
