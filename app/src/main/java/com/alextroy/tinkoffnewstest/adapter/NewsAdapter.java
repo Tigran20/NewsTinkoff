@@ -8,10 +8,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alextroy.tinkoffnewstest.R;
 import com.alextroy.tinkoffnewstest.dto.NewsItem;
+import com.alextroy.tinkoffnewstest.ui.NewsDetailsActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -35,13 +37,20 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
-        NewsItem result = listItem.get(position);
+    public void onBindViewHolder(@NonNull final NewsViewHolder holder, int position) {
+        final NewsItem result = listItem.get(position);
         holder.titleTextView.setText(result.getText());
 
         long originalDate = result.getPublicationDate().getMilliseconds();
         String date = getDate(originalDate, "HH:mm");
         holder.date.setText(date);
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NewsDetailsActivity.newIntent(context, result);
+            }
+        });
     }
 
     @Override
@@ -59,11 +68,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
     public static class NewsViewHolder extends RecyclerView.ViewHolder {
 
+        private CardView cardView;
         private TextView titleTextView;
         private TextView date;
 
         public NewsViewHolder(View itemView) {
             super(itemView);
+            cardView = itemView.findViewById(R.id.card_view);
             titleTextView = itemView.findViewById(R.id.news_description);
             date = itemView.findViewById(R.id.news_date);
         }
@@ -75,5 +86,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(milliSeconds);
         return formatter.format(calendar.getTime());
+    }
+
+    private void sendData() {
+
     }
 }

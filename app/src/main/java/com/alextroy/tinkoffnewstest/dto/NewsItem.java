@@ -3,9 +3,10 @@ package com.alextroy.tinkoffnewstest.dto;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Comparator;
+import java.io.Serializable;
 
-public class NewsItem {
+
+public class NewsItem implements Serializable {
 
     @SerializedName("id")
     @Expose

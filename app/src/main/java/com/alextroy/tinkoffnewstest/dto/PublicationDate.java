@@ -3,7 +3,9 @@ package com.alextroy.tinkoffnewstest.dto;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class PublicationDate {
+import java.io.Serializable;
+
+public class PublicationDate implements Serializable {
 
     @SerializedName("milliseconds")
     @Expose

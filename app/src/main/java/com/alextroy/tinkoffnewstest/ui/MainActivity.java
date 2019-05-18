@@ -74,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
                         List<NewsItem> newsItems = generalNews.getPayload();
                         sortByDate(newsItems);
                         adapter.setData(newsItems);
+
+
                     }
 
                     @Override
