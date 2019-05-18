@@ -15,7 +15,7 @@ public class GeneralNews {
     private List<NewsItem> payload = null;
     @SerializedName("trackingId")
     @Expose
-    private String trackingId;
+    private String  trackingId;
 
     public String getResultCode() {
         return resultCode;
@@ -42,4 +42,3 @@ public class GeneralNews {
     }
 
 }
-

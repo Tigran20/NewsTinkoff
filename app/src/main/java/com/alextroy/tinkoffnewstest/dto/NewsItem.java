@@ -3,6 +3,8 @@ package com.alextroy.tinkoffnewstest.dto;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Comparator;
+
 public class NewsItem {
 
     @SerializedName("id")
@@ -14,6 +16,9 @@ public class NewsItem {
     @SerializedName("text")
     @Expose
     private String text;
+    @SerializedName("publicationDate")
+    @Expose
+    private PublicationDate publicationDate;
     @SerializedName("bankInfoTypeId")
     @Expose
     private int bankInfoTypeId;
@@ -42,6 +47,13 @@ public class NewsItem {
         this.text = text;
     }
 
+    public PublicationDate getPublicationDate() {
+        return publicationDate;
+    }
+
+    public void setPublicationDate(PublicationDate publicationDate) {
+        this.publicationDate = publicationDate;
+    }
 
     public int getBankInfoTypeId() {
         return bankInfoTypeId;
@@ -50,5 +62,4 @@ public class NewsItem {
     public void setBankInfoTypeId(int bankInfoTypeId) {
         this.bankInfoTypeId = bankInfoTypeId;
     }
-
 }

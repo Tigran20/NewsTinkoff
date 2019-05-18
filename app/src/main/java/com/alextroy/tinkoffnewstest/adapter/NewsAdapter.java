@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alextroy.tinkoffnewstest.R;
 import com.alextroy.tinkoffnewstest.dto.NewsItem;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
@@ -36,6 +38,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
         NewsItem result = listItem.get(position);
         holder.titleTextView.setText(result.getText());
+
+        long originalDate = result.getPublicationDate().getMilliseconds();
+        String date = getDate(originalDate, "HH:mm");
+        holder.date.setText(date);
     }
 
     @Override
@@ -54,10 +60,20 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     public static class NewsViewHolder extends RecyclerView.ViewHolder {
 
         private TextView titleTextView;
+        private TextView date;
 
         public NewsViewHolder(View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.news_description);
+            date = itemView.findViewById(R.id.news_date);
         }
+    }
+
+    public static String getDate(long milliSeconds, String dateFormat) {
+        SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(milliSeconds);
+        return formatter.format(calendar.getTime());
     }
 }

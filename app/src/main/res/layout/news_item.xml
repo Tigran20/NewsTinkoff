@@ -29,6 +29,15 @@
                 android:maxLines="3"
                 android:text="fds"
                 android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/news_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:maxLines="3"
+                android:text=""
+                android:textColor="@android:color/black" />
         </LinearLayout>
     </LinearLayout>
 

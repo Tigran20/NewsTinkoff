@@ -7,13 +7,13 @@ public class PublicationDate {
 
     @SerializedName("milliseconds")
     @Expose
-    private int milliseconds;
+    private long milliseconds;
 
-    public int getMilliseconds() {
+    public long getMilliseconds() {
         return milliseconds;
     }
 
-    public void setMilliseconds(int milliseconds) {
+    public void setMilliseconds(long milliseconds) {
         this.milliseconds = milliseconds;
     }
 
