@@ -45,12 +45,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         String date = getDate(originalDate, "HH:mm");
         holder.date.setText(date);
 
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NewsDetailsActivity.newIntent(context, result);
-            }
-        });
+        holder.cardView.setOnClickListener(view -> NewsDetailsActivity.newIntent(context, result, holder.getAdapterPosition()));
     }
 
     @Override
@@ -86,9 +81,5 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(milliSeconds);
         return formatter.format(calendar.getTime());
-    }
-
-    private void sendData() {
-
     }
 }

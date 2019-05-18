@@ -23,6 +23,9 @@ public class NewsItem implements Serializable {
     @SerializedName("bankInfoTypeId")
     @Expose
     private int bankInfoTypeId;
+    @SerializedName("content")
+    @Expose
+    private String content;
 
     public String getId() {
         return id;
@@ -62,5 +65,14 @@ public class NewsItem implements Serializable {
 
     public void setBankInfoTypeId(int bankInfoTypeId) {
         this.bankInfoTypeId = bankInfoTypeId;
+    }
+
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

@@ -74,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
                         List<NewsItem> newsItems = generalNews.getPayload();
                         sortByDate(newsItems);
                         adapter.setData(newsItems);
-
-
                     }
 
                     @Override
@@ -88,13 +86,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateData() {
         swipeRefreshLayout.setOnRefreshListener(
-                new SwipeRefreshLayout.OnRefreshListener() {
-                    @Override
-                    public void onRefresh() {
-                        getNews();
-                        Snackbar.make(findViewById(R.id.recycler_view), R.string.update_data, Snackbar.LENGTH_SHORT).show();
-                        swipeRefreshLayout.setRefreshing(false);
-                    }
+                () -> {
+                    getNews();
+                    Snackbar.make(findViewById(R.id.recycler_view), R.string.update_data, Snackbar.LENGTH_SHORT).show();
+                    swipeRefreshLayout.setRefreshing(false);
                 }
         );
     }
